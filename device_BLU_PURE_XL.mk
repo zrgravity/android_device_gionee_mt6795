@@ -18,6 +18,42 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
+PRODUCT_PACKAGES += \
+	libxlog 
+
+#Wifi
+PRODUCT_PACKAGES += \
+	libwifi-hal-mt66xx \
+	lib_driver_cmd_mt66xx \
+	libwpa_client \
+	hostapd \
+	hostapd_cli \
+	dhcpcd.conf \
+	wpa_supplicant \
+	wpa_supplicant.conf
+
+#Audio
+PRODUCT_PACKAGES += \
+    	audio_policy.default \
+    	audio_policy.stub \
+    	audio.r_submix.default \
+    	audio.usb.default \
+    	libaudio-resampler \
+    	tinymix \
+    	libtinyalsa
+
+PRODUCT_COPY_FILES += \
+    	$(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    	$(LOCAL_PATH)/configs/media_codecs.xml:system/etc/permissions/media_codecs.xml \
+	$(LOCAL_PATH)/configs/audio_device.xml:system/etc/audio_device.xml \
+    	$(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+
+
+#Bluetooth
+PRODUCT_PACKAGES += \
+    	libbt-vendor
+	
+#Ramdisk
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/ramdisk/enableswap.sh:root/enableswap.sh \
 	$(LOCAL_PATH)/ramdisk/factory_init.project.rc:root/factory_init.project.rc \
@@ -38,8 +74,37 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/ramdisk/meta_init.rc:root/meta_init.rc \
 	$(LOCAL_PATH)/ramdisk/ueventd.mt6795.rc:root/ueventd.mt6795.rc
 
+#Permissions
+PRODUCT_COPY_FILES += \
+	frameworks/native/data/etc/android.software.app_widgets.xml:/system/etc/permissions/android.software.app_widgets.xml \
+	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+    	frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
+	frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+    	frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    	frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    	frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
+    	frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
+    	frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
+    	frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
+    	frameworks/native/data/etc/android.hardware.touchscreen.xml:system/etc/permissions/android.hardware.touchscreen.xml \
+    	frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
+    	frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
+    	frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
+    	frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
+    	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml 
+
 $(call inherit-product, build/target/product/full.mk)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    	ro.kernel.android.checkjni=0 \
+    	dalvik.vm.checkjni=false \
+	ro.telephony.ril_class=MediaTekRIL \
+	ro.telephony.ril.config=fakeiccid
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_BLU_PURE_XL
 PRODUCT_DEVICE := BLU_PURE_XL
+
+#Set correct memory limits
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
