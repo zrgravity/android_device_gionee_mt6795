@@ -10,8 +10,12 @@ import init.ssd_nomuser.rc
 import init.fon.rc
 import init.volte.rc
 import init.trustonic.rc
+import init.modem.rc
+
 
 on init
+
+    export LD_PRELOAD "libxlog.so"
 
     # BATTERY proc
     chown radio system /proc/mtk_battery_cmd/current_cmd
@@ -638,9 +642,12 @@ on post-fs-data
 
 on boot
 
+    #needed for RIL
+    chmod 644 /proc/cmdline
     chown root /remount.sh
     chmod 700 /remount.sh
     exec /remount.sh
+
 
     # xlog
     start xlogboot

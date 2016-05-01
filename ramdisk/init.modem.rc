@@ -55,7 +55,7 @@ service ril-daemon-mtk /system/bin/mtkrild
     socket rild-atci stream 660 root radio
     user root
     group radio cache inet misc audio sdcard_r sdcard_rw log system
-    disabled
+    #disabled
     oneshot
 
 service ril-daemon-md2 /system/bin/mtkrildmd2
@@ -142,4 +142,3 @@ service terservice /system/bin/terservice
     user radio
     group radio cache inet misc
     oneshot
-
