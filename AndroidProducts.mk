@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/device_BLU_PURE_XL.mk
+    $(LOCAL_DIR)/device_mt6795.mk

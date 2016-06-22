@@ -1,7 +1,8 @@
+#
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
-LOCAL_PATH := device/BLU/BLU_PURE_XL
+LOCAL_PATH := device/gionee/mt6795
 -include vendor/BLU/BLU_PURE_XL/BoardConfigVendor.mk
 
 TARGET_ARCH := arm64
@@ -23,7 +24,7 @@ TARGET_USES_64_BIT_BINDER := true
 TARGET_IS_64_BIT := true
 
 TARGET_NO_BOOTLOADER := true
-TARGET_BOARD_PLATFORM := mt6796
+TARGET_BOARD_PLATFORM := mt6795
 TARGET_BOOTLOADER_BOARD_NAME := mt6795
 
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
@@ -32,12 +33,12 @@ BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
 #BOARD_KERNEL_BASE := 0x40078000 
 #BOARD_KERNEL_BASE := 0x4dffff00
 #BOARD_KERNEL_PAGESIZE := 2048
-#TARGET_KERNEL_SOURCE := kernel/BLU/BLU_PURE_XL
-#TARGET_KERNEL_CONFIG := gionee6795_lwt_l1_defconfig
-TARGET_PREBUILT_KERNEL := device/BLU/BLU_PURE_XL/kernel
+#TARGET_KERNEL_SOURCE := kernel/gionee/mt6795
+#TARGET_KERNEL_CONFIG := cm_mt6795_defconfig
+TARGET_PREBUILT_KERNEL := device/gionee/mt6795/kernel
 TARGET_MKIMAGE := $(LOCAL_PATH)/mkimage
 #BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
-BOARD_MKBOOTIMG_ARGS := --base 0x40078000 --pagesize 2048 --kernel_offset 0x00008000 --ramdisk_offset 0x03f88000 --second_offset 0x00e88000 --tags_offset 0x0df88000 --board Acheron1502
+BOARD_MKBOOTIMG_ARGS := --base 0x40078000 --pagesize 2048 --kernel_offset 0x00008000 --ramdisk_offset 0x03f88000 --second_offset 0x00e88000 --tags_offset 0x0df88000 --board Bemolx
 
 # fix this up by examining /proc/mtd on a running device
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -94,3 +95,6 @@ TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
+
+#for building without kernel source
+$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
