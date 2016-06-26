@@ -1,5 +1,5 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
@@ -114,6 +114,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
     	dalvik.vm.checkjni=false \
 	ro.telephony.ril_class=MediaTekRIL \
 	ro.telephony.ril.config=fakeiccid
+	
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
+     ro.adb.secure=0 \
+     ro.secure=1 \
+     ro.allow.mock.location=1 \
+     ro.debuggable=1 \
+     ro.zygote=zygote64_32 \
+     camera.disable_zsl_mode=1 \
+     ro.mount.fs=EXT4 \
+     persist.service.acm.enable=0 \
+     persist.sys.usb.config=mtp,mass_storage
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_mt6795
