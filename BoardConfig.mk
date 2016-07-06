@@ -113,5 +113,22 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
 
+#TWRP
+TW_NO_USB_STORAGE := false
+TW_NEVER_UNMOUNT_SYSTEM := true
+TARGET_CPU_SMP := true
+TW_NO_SCREEN_BLANK := true
+RECOVERY_SDCARD_ON_DATA := true
+BOARD_HAS_NO_REAL_SDCARD := true
+RECOVERY_VARIANT := twrp
+TW_INTERNAL_STORAGE_PATH := "/data/media/0"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := '/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/root/init.rc
+TW_THEME := portrait_hdpi
+RECOVERY_GRAPHICS_USE_LINELENGTH := true 
+TARGET_PREBUILT_RECOVERY_KERNEL := $(LOCAL_PATH)/kernel
+
 #for building without kernel source
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
