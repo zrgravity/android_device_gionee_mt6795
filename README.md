@@ -1,12 +1,11 @@
 #Gionee MT6795 CyanogenMod 13.0
 
-Device Tree for building CyanogenMod 13.0
+Device Tree for building CyanogenMod 13.0 for [BLU Pure XL (P0010UU) MTK (MT6795)](http://www.gsmarena.com/blu_pure_xl-7558.php)
 
-Compatible devices: (MediaTek MT6795 deivces)
-- AllView X2 Soul Xtreme 
-- BLU Pure XL 
-- Condor Allure A100 
-- Gione Elife E8 
+Builds are compatible also with:
+- AllView X2 Soul Xtreme (MediaTek 6795)
+- Condor Allure A100 (MediaTek 6795)
+- Gionee Elife E8 (MediaTek 6795)
 
 ** NOTE **
 
@@ -17,7 +16,7 @@ VENDOR TREE:  [root-expert's repo](https://github.com/root-expert/android_vendor
 
 Support Thread: [XDA](http://forum.xda-developers.com/pure-xl/development/rom-cyanogenmod-13-0-unofficial-booting-t3399357)
 
-Thanks (alphabetical order)
+Thanks (alphabetical order):
 - @acheron1502
 - @CyanogenMod
 - @jianminglok
