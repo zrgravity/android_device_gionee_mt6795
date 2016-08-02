@@ -12,7 +12,9 @@ Builds are compatible also with:
 This tree contains a PREBUILT KERNEL and RAMDISK. Kernel source is in experimental phase.
 
 
-VENDOR TREE:  [root-expert's repo](https://github.com/root-expert/android_vendor_BLU_BLU_PURE_XL)
+Vendor tree: [BemolxDevelopment's repo](https://github.com/BemolxDevelopment/android_vendor_BLU_BLU_PURE_XL)
+
+Kernel tree: [BemolxDevelopment's repo](https://github.com/BemolxDevelopment/android_kernel_mediatek_mt6795)
 
 Support Thread: [XDA](http://forum.xda-developers.com/pure-xl/development/rom-cyanogenmod-13-0-unofficial-booting-t3399357)
 
