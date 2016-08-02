@@ -1,4 +1,4 @@
-#Gionee MT6795 CyanogenMod 13.0
+#CyanogenMod 13.0 MT6795
 
 Device Tree for building CyanogenMod 13.0 for [BLU Pure XL (P0010UU) MTK (MT6795)](http://www.gsmarena.com/blu_pure_xl-7558.php)
 
