@@ -130,6 +130,8 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_mt6795
 PRODUCT_DEVICE := mt6795
 
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+
 #Set correct memory limits
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
